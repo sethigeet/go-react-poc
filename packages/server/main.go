@@ -8,13 +8,21 @@ import (
 	"os/signal"
 	"time"
 
+	"github.com/sethigeet/go-react-poc/packages/server/database"
 	"github.com/sethigeet/go-react-poc/packages/server/utils"
 )
 
 func main() {
+	var err error
+
 	// Load environment variables
 	if err := utils.LoadEnv(true); err != nil {
-		log.Fatalf("errors while loading the env file: \n%s", err)
+		log.Fatalf("there were errors while loading the env file: \n%s", err)
+	}
+
+	err = database.Connect(true)
+	if err != nil {
+		log.Fatalf("there were errors while connecting to the database: \n%s", err)
 	}
 
 	srv := InitializeServer()
@@ -48,7 +56,11 @@ func main() {
 		}
 	}()
 
-	// TODO: Close database and other connections here
+	// Close the database connection
+	err = database.Disconnect()
+	if err != nil {
+		log.Fatalf("Shutdown: error while trying to close the database connection: %s", err)
+	}
 
 	log.Println("Shutting down...(Press Ctrl+C again to force)")
 
