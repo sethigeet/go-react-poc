@@ -9,14 +9,14 @@ import (
 	"time"
 
 	"github.com/sethigeet/go-react-poc/packages/server/database"
-	"github.com/sethigeet/go-react-poc/packages/server/utils"
+	"github.com/sethigeet/go-react-poc/packages/server/util"
 )
 
 func main() {
 	var err error
 
 	// Load environment variables
-	if err := utils.LoadEnv(true); err != nil {
+	if err := util.LoadEnv(true); err != nil {
 		log.Fatalf("there were errors while loading the env file: \n%s", err)
 	}
 

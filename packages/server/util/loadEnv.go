@@ -1,5 +1,4 @@
-// Package utils provides some useful utility functions
-package utils
+package util
 
 import (
 	"fmt"
