@@ -5,6 +5,7 @@ import (
 	"time"
 
 	"github.com/gorilla/mux"
+	"github.com/sethigeet/go-react-poc/packages/server/handler"
 	"github.com/sethigeet/go-react-poc/packages/server/middleware"
 )
 
@@ -20,7 +21,8 @@ func InitializeServer() *http.Server {
 	// middleware
 	middleware.Apply(r)
 
-	// TODO: Add routes here
+	// Routes
+	handler.Apply(r)
 
 	srv := &http.Server{
 		Addr: "0.0.0.0:" + DefualtPort,
