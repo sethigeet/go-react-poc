@@ -9,6 +9,8 @@ import (
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
+
+	"github.com/sethigeet/go-react-poc/packages/server/model"
 )
 
 var DB *gorm.DB
@@ -53,7 +55,7 @@ func Connect(migrate bool) error {
 }
 
 func automigrate() error {
-	err := DB.AutoMigrate()
+	err := DB.AutoMigrate(&model.User{})
 
 	return err
 }
