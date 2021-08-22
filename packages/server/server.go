@@ -18,8 +18,7 @@ func InitializeServer() *http.Server {
 	r := mux.NewRouter()
 
 	// middleware
-	r.Use(mux.CORSMethodMiddleware(r))
-	r.Use(middleware.Logger)
+	middleware.Apply(r)
 
 	// TODO: Add routes here
 
