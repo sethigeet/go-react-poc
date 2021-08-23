@@ -10,8 +10,8 @@ import (
 // User is the user model that is used for the API and database tables
 type User struct {
 	ID        string    `json:"id" gorm:"type:uuid;primaryKey"`
-	Email     string    `json:"email" gorm:"not null;unique;size:256"`
-	Username  string    `json:"username" gorm:"not null;unique;size:256"`
+	Email     string    `json:"email" gorm:"not null;unique;size:256" validation:"required,email"`
+	Username  string    `json:"username" gorm:"not null;unique;size:256" validation:"required"`
 	CreatedAt time.Time `json:"createdAt"`
 	UpdatedAt time.Time `json:"updatedAt"`
 }
