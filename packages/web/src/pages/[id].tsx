@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { GetServerSideProps } from "next";
 import { User } from "../types/user";
-import styles from "./[id].module.scss";
+import styles from "@/styles/pages/[id].module.scss";
 
 interface Props {
   user: User;

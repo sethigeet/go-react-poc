@@ -3,7 +3,7 @@ import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 
 import { User } from "../types/user";
-import styles from "./index.module.scss";
+import styles from "@/styles/pages/index.module.scss";
 
 interface Props {
   users: User[];
