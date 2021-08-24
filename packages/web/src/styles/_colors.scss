@@ -1,0 +1,32 @@
+$colors: (
+  primary: (
+    400: hsl(13, 68%, 60%),
+    900: hsl(13, 68%, 20%),
+  ),
+  accent: (
+    400: hsl(151, 24%, 60%),
+    900: hsl(151, 24%, 20%),
+  ),
+  foreground: (
+    400: hsl(234, 20%, 30%),
+    900: hsl(234, 20%, 15%),
+  ),
+  background: (
+    400: hsl(52, 50%, 91%),
+  ),
+  white: (
+    400: hsl(0, 0%, 100%),
+  ),
+);
+
+:root {
+  @each $color, $shade in $colors {
+    @each $weight, $value in $shade {
+      --clr-#{$color}-#{$weight}: #{$value};
+    }
+  }
+}
+
+* {
+  color: var(--clr-foreground-400);
+}

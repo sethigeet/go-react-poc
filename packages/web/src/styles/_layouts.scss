@@ -1,0 +1,12 @@
+.container {
+  display: grid;
+  place-items: center;
+
+  padding-top: 1.5em;
+
+  & > h1 {
+    font-size: var(--fs-800);
+    color: var(--clr-foreground-900);
+    margin-bottom: 0.25em;
+  }
+}

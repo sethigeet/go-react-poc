@@ -30,13 +30,8 @@ func (userHandler UserHandler) Apply() {
 
 	subRouter.HandleFunc("/", userHandler.GetAll).Methods(http.MethodGet)
 	subRouter.HandleFunc("/", userHandler.Create).Methods(http.MethodPost)
-	//                         ------------------------ Only accept valid uuids in the url ------------------------
-	subRouter.
-		HandleFunc("/{id:[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}}", userHandler.Get).
-		Methods(http.MethodGet)
-	subRouter.
-		HandleFunc("/{id:[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}}", userHandler.Delete).
-		Methods(http.MethodDelete)
+	subRouter.HandleFunc("/{id}", userHandler.Get).Methods(http.MethodGet)
+	subRouter.HandleFunc("/{id}", userHandler.Delete).Methods(http.MethodDelete)
 }
 
 // GetAll retreives all the users from the databse and gives back a JSON response
