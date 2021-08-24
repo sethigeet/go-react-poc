@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { GetServerSideProps } from "next";
 import { User } from "../types/user";
 import styles from "./[id].module.scss";
@@ -8,10 +9,15 @@ interface Props {
 
 export default function Home({ user }: Props) {
   return (
-    <div className={styles.container}>
-      <h1>User</h1>
-      <pre className={styles.userData}>{JSON.stringify(user, null, 2)}</pre>
-    </div>
+    <>
+      <Head>
+        <title>User {user.username}</title>
+      </Head>
+      <div className={styles.container}>
+        <h1>User</h1>
+        <pre className={styles.userData}>{JSON.stringify(user, null, 2)}</pre>
+      </div>
+    </>
   );
 }
 
