@@ -29,7 +29,7 @@ func (userHandler UserHandler) Apply() {
 	subRouter := userHandler.r.PathPrefix("/user").Subrouter()
 
 	subRouter.HandleFunc("/", userHandler.GetAll).Methods(http.MethodGet)
-	subRouter.HandleFunc("/", userHandler.Create).Methods(http.MethodPost)
+	subRouter.HandleFunc("/", userHandler.Create).Methods(http.MethodPost, http.MethodOptions)
 	subRouter.HandleFunc("/{id}", userHandler.Get).Methods(http.MethodGet)
 	subRouter.HandleFunc("/{id}", userHandler.Delete).Methods(http.MethodDelete)
 }

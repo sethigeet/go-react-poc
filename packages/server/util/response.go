@@ -41,7 +41,7 @@ func CreatedResponse(w http.ResponseWriter, resName string, res interface{}) {
 func BadRequestResponse(w http.ResponseWriter, err interface{}) {
 	w.WriteHeader(http.StatusBadRequest)
 	jsonResponse, _ := json.Marshal(map[string]interface{}{
-		"error": err,
+		"errors": err,
 	})
 	fmt.Fprint(w, string(jsonResponse))
 }

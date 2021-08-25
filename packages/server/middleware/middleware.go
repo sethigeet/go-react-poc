@@ -6,6 +6,6 @@ import (
 )
 
 func Apply(r *mux.Router) {
-	r.Use(mux.CORSMethodMiddleware(r))
+	r.Use(ContentType)
 	r.Use(Logger)
 }

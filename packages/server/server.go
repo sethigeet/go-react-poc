@@ -5,6 +5,8 @@ import (
 	"time"
 
 	"github.com/gorilla/mux"
+	"github.com/rs/cors"
+
 	"github.com/sethigeet/go-react-poc/packages/server/handler"
 	"github.com/sethigeet/go-react-poc/packages/server/middleware"
 )
@@ -32,7 +34,7 @@ func InitializeServer() *http.Server {
 		ReadTimeout:  time.Second * 15,
 		IdleTimeout:  time.Second * 60,
 
-		Handler: r,
+		Handler: cors.Default().Handler(r),
 	}
 
 	return srv
