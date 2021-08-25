@@ -24,8 +24,8 @@ export default function Home({ users }: Props) {
             <tr>
               <th>Username</th>
               <th>Email</th>
-              <th>CreatedAt</th>
-              <th>UpdatedAt</th>
+              <th>Created At</th>
+              <th>Updated At</th>
             </tr>
           </thead>
           <tbody>

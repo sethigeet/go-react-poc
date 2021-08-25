@@ -1,0 +1,60 @@
+@use "../layouts";
+
+.createForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & > * {
+    margin-top: 1em;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    font-size: var(--fs-400);
+    margin-right: var(--fs-200);
+  }
+
+  input {
+    font-size: var(--fs-500);
+    padding: var(--fs-200);
+    border: 2px solid var(--clr-foreground-100);
+    border-radius: var(--fs-200);
+
+    transition: border 0.2s ease-in-out;
+
+    &:focus {
+      border: 2px solid var(--clr-primary-400);
+    }
+  }
+
+  span {
+    margin-top: var(--fs-100);
+    color: var(--clr-error-400);
+  }
+}
+
+.createBtn {
+  background-color: var(--clr-primary-400);
+  padding: 1em;
+  font-size: var(--fs-300);
+  font-weight: bold;
+  color: var(--clr-white-400);
+  border: 2px solid transparent; /* this is kept here so that the layout doesn't shift when a border is applied in :focus */
+  border-radius: var(--fs-300);
+  cursor: pointer;
+
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:focus {
+    border: 2px solid var(--clr-primary-700);
+  }
+}
